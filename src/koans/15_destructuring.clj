@@ -39,12 +39,11 @@
   (= "123 Test Lane, Testerville, TX"
      (let [{:keys [street-address city state]} test-address]
        (apply str (interpose ", " [street-address city state]))
-      ; (println :keys)
        ))
 
   "All together now!"
   (= "Test Testerson, 123 Test Lane, Testerville, TX"
-    ;TODO interpose apply str
-     ((fn [x {:keys [street-address city state]}] (println (conj x street-address city state)))
-      ["Test" "Testerson"] test-address))
+      (let [{:keys [street-address city state]} test-address]
+       (apply str (interpose ", " (cons "Test Testerson" [street-address city state]))))
+     )
      );meditation
