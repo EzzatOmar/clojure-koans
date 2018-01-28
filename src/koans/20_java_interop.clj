@@ -2,14 +2,14 @@
   (:require [koan-engine.core :refer :all]))
 
 (meditations
+  (= java.lang.String (class "warfare")) ; hint: try typing (javadoc "warfare") in the REPL
   "You may have done more with Java than you know"
-  (= __ (class "warfare")) ; hint: try typing (javadoc "warfare") in the REPL
 
   "The dot signifies easy and direct Java interoperation"
-  (= __ (.toUpperCase "select * from"))
+  (= "SELECT * FROM" (.toUpperCase "select * from"))
 
   "But instance method calls are very different from normal functions"
-  (= ["SELECT" "FROM" "WHERE"] (map ___ ["select" "from" "where"]))
+  (= ["SELECT" "FROM" "WHERE"] (map  ["select" "from" "where"]))
 
   "Constructing might be harder than breaking"
   (= 10 (let [latch (java.util.concurrent.CountDownLatch. __)]
